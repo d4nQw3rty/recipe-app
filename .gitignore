@@ -1,5 +1,5 @@
 /node_modules
 
 .env
-
-/tmp/cache
+/tmp
+/tmp/cache/
