@@ -334,3 +334,5 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 93ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 4085)
 
 
+  [1m[35m (4783.4ms)[0m  [1m[35mCREATE DATABASE "recipe_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (886.4ms)[0m  [1m[35mCREATE DATABASE "recipe_app_test" ENCODING = 'unicode'[0m
