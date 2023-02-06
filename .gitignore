@@ -1,5 +1,5 @@
 /node_modules
-
 .env
 /tmp
-/tmp/cache/
+/tmp/cache
+/tmp/cache/bootsnap
