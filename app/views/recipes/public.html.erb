@@ -1,0 +1,13 @@
+<section class='container'>
+<% @recipes.each do |recipe| %>
+  <div class='card'>
+    <div class='subdiv'>
+    <h2><%= recipe.name %></h2>
+    <h3>By: <%= recipe.user.name %></h3>
+    </div>
+    <div class='subdiv'>
+    <p><%= recipe.description %></p>
+    </div>
+  </div>
+<% end %>
+</section>
