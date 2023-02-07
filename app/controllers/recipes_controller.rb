@@ -24,6 +24,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+
   def create
     @recipe = Recipe.new(params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public))
     @recipe.user = current_user
@@ -34,5 +38,11 @@ class RecipesController < ApplicationController
       flash.now[:error] = 'Something went wrong'
       render :new, status: 422
     end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path, status: :see_other
   end
 end

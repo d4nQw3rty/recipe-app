@@ -114,3 +114,9 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+.container > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
