@@ -15,15 +15,7 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
-  end
-
-  def update
-    if @food.update(food_params)
-      redirect_to @food, notice: 'Food was successfully updated.'
-    else
-      redirect_to @food, notice: 'Food was not updated.'
-    end
-  end
+  end 
 
   def destroy
     @food = Food.find(params[:id])
