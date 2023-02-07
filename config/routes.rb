@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'
   post 'recipes', to: 'recipes#create', as: 'recipe_create'
   post '/recipes/:id/toggle', to: 'recipes#toggle', as: 'recipe_toggle'
+  resources :users, only: [:index, :show ]
 end
