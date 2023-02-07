@@ -1,8 +1,14 @@
-<% @recipes.each do |recipe| %>
-  <div class='card'>
-    <h2><%= recipe.name %></h2>
-    <h2><%= recipe.preparation_time %></h2>
-    <h2><%= recipe.cooking_time %></h2>
-    <p><%= recipe.description %></p>
-  </div>
-<% end %>
+<section class='container'>
+  <% @recipes.each do |recipe| %>
+    <a href="<%= recipe_path(recipe.id)%>" class='card'>
+      <div class='subdiv'>
+        <h2><%= recipe.name %></h2>
+        <%= button_to 'delete'%>
+      </div>
+      <div class='subdiv'>
+        <p><%= recipe.description %></p>
+      </div>
+    </a>
+  <% end %>
+  <%= button_to 'Add New Recipe'%>
+</section>

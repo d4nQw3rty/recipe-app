@@ -3,8 +3,25 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(user_id: current_user.id)
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+    @recipefoods = RecipeFood.includes(:food).where(recipe_id: params[:id])
+  end
+
   def public
-    @recipes = Recipe.where(public: true)
+    @recipes = Recipe.includes(:recipe_foods, :user).where(public: true)
+  end
+
+  def toggle
+    @recipe = Recipe.find(params[:id])
+    @recipe.toggle! :public
+    if @recipe.save
+      flash[:success] = 'Post created successfully'
+      redirect_to recipe_path
+    else
+      flash.now[:error] = 'Something went wrong'
+      render :new, status: 422
+    end
   end
 
   def create
