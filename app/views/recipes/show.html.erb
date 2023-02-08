@@ -1,0 +1,38 @@
+<section class='container'>
+  <h1><%= @recipe.name %></h1>
+  <div class='subcontainer'>
+    <div class='column-left'>
+      <p>Preparation Time: <%= @recipe.preparation_time %> hs.</p>
+      <p>Cooking Time: <%= @recipe.cooking_time %> hs.</p>
+      <p> <%= @recipe.description %>
+    </div>
+    <div class='column-right'>
+      <div class='togglediv'>
+        <p class='togglelabel'>Public</p>
+        <%= link_to recipe_toggle_path(@recipe.id), data: { "turbo-method": :post } do %>
+          <label class="switch" checked='<%= @recipe.public %>'>
+            <input type="checkbox" checked='<%= @recipe.public %>'>
+            <span class="slider round" checked='<%= @recipe.public %>'></span>
+          </label>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <span></span>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipefoods.each do |recipefood| %>
+      <tr>
+        <td><%= recipefood.food.name %></td>
+        <td><%= recipefood.quantity %> <%= recipefood.food.measurement_unit %></td>
+        <td>$ <%= recipefood.quantity * recipefood.food.price %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
