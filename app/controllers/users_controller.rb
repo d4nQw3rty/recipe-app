@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @current_user = current_user
   end
 
   # GET /users/1 or /users/1.json
