@@ -8,22 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "foods", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "nav_menu.css", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <nav class='navbar'>
-      <% if user_signed_in? %>
+    <nav class="navbar">
+      <% if user_signed_in? %>        
+        <%= render 'shared/nav_menu' %>
+        <div>
         <%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
-        <%= current_user.name %>
-        <%= link_to 'Foods', foods_path %>
-        <%= link_to 'Recipes', recipes_path %>
-      <% else %>
-        <%= link_to "login", new_user_session_path %>
-        <%= link_to 'Sign up', new_user_registration_path %>
+        </div>
       <% end %>
-      <%= link_to 'Public Recipes', public_recipes_path %>
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
