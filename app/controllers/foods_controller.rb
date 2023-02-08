@@ -5,7 +5,6 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-
     if @food.save
       redirect_to foods_path, notice: 'Food was successfully created.'
     else
@@ -19,9 +18,11 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    @food.destroy
-
-    redirect_to foods_path, notice: 'Food was successfully destroyed.'
+    if @food.destroy
+      redirect_to foods_path, notice: 'Food was successfully destroyed.'
+    else
+      redirect_to foods_path, notice: 'Food was not destroyed.'
+    end
   end
 
   def food_params
