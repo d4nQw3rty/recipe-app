@@ -8,9 +8,13 @@
       <th colspan="3">Action</th>
     </tr>
   </thead>
-  <tbody>  
-    <% @foods.each do |food| %>    
-      <%= render food %> 
+  <tbody>
+    <% if @foods.length > 0  %>  
+      <% @foods.each do |food| %>    
+        <%= render food %> 
+      <% end %>
+    <% else %>
+      <p>There are no foods associated with this user</p>
     <% end %>
   </tbody>
 <table>
