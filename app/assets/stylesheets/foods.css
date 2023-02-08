@@ -70,9 +70,9 @@ h1 {
 }
 
 table tbody tr:nth-child(odd) {
-	background: #afadad;
+  background: #afadad;
 }
 
 table tbody tr:nth-child(even) {
-	background: #e6e6e6;
+  background: #e6e6e6;
 }
