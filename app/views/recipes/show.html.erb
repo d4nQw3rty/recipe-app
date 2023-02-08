@@ -6,6 +6,7 @@
       <p>Cooking Time: <%= @recipe.cooking_time %> hs.</p>
       <p> <%= @recipe.description %>
     </div>
+    <% if can? :manage, @recipe%>
     <div class='column-right'>
       <div class='togglediv'>
         <p class='togglelabel'>Public</p>
@@ -17,6 +18,7 @@
         <% end %>
       </div>
       <%= link_to 'Add Ingredient', ingredient_new_path(@recipe.id) %>
+      <% end %>
     </div>
   </div>
   <span></span>

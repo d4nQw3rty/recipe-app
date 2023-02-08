@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  load_and_authorize_resource except: :create
   def new
     @recipefood = RecipeFood.new
     @foods = Food.where(user_id: current_user.id)
