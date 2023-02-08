@@ -11,20 +11,4 @@
   </button>
   </div> 
 </div>
-<table class="table_style">
-<thead>
-  <tr class="tr_style">
-    <th>Food</th>
-    <th>Measurement unit</th>
-    <th>Price</th>
-    <th>Quantity</th>    
-    <th colspan="3">Action</th>
-  </tr>
-</thead>
-<tbody>  
-  <% @foods.each do |food| %>    
-    <%= render food %> 
-  <% end %>
-</tbody>
-
-<table>
+<%= render 'food_table' %>
