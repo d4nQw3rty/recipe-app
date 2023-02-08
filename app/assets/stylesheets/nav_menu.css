@@ -1,0 +1,21 @@
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2em;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em 3em;
+  font-size: 1em;
+  list-style: none;
+}
+
+.box a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.box a:hover {
+  color: green;
+}

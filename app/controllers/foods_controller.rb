@@ -6,7 +6,9 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    @food.user = current_user
+
+    @food.user_id = current_user.id
+
     if @food.save
       redirect_to foods_path, notice: 'Food was successfully created.'
     else

@@ -8,6 +8,8 @@ a {
   flex-direction: column;
   width: 100vw;
   align-items: center;
+  gap: 1em;
+  margin-top: 1em;
 }
 
 .card {
@@ -15,6 +17,14 @@ a {
   width: 80%;
   justify-content: space-around;
   border: 2px solid black;
+  background: #fff;
+  box-shadow: 4px 4px 1px;
+}
+
+.card:hover {
+  background: #370fe9;
+  color: #fff;
+  box-shadow: 4px 4px 1px;
 }
 
 .subdiv {
