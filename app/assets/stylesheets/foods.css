@@ -14,13 +14,13 @@ h1 {
   padding: 1em 3em;
 }
 
-.food_menu_box a{
+.food_menu_box a {
   text-decoration: none;
   color: #000;
   font-size: 1.5em;
 }
 
-.food_menu_box a:hover{
+.food_menu_box a:hover {
   color: #fff;
 }
 
@@ -49,10 +49,9 @@ h1 {
 
 .table_style {
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
   padding: 5px 5px;
   background: #e6e6e6;
-
 }
 
 .tr_style {
@@ -73,6 +72,7 @@ h1 {
 table tbody tr:nth-child(odd) {
 	background: #afadad;
 }
+
 table tbody tr:nth-child(even) {
 	background: #e6e6e6;
 }
