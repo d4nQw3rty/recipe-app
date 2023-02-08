@@ -1,5 +1,7 @@
 <div>
   <ul class='box'>
+    <li class='username'><%= current_user.name %></li>
+    <li>|</li>
     <li><%= link_to "Public Recipe", root_path %></li>
     <li>|</li>
     <li><%= link_to "My Recipes", recipes_path %></li>
