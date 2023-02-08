@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Foods</h1>
+<div class="food_menu_box"
+  <div>
+  <button type='button' class="button_style">
+    <%= link_to "Add food", new_food_path %>
+  </button>
+  <button type='button' class="button_style">
+    <%= link_to "Back to users", users_path %>      
+  </button>
+  </div> 
+</div>
+<%= render 'food_table' %>
