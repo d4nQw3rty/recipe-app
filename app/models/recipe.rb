@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods, dependent: :destroy, foreign_key: 'recipe_id'
-
+  validates :name, presence: true
   def total_price
     recipefoods = RecipeFood.includes(:food).where(recipe_id: id)
     total = 0
