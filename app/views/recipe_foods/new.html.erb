@@ -1,0 +1,12 @@
+  <body>
+    <div class='container'>
+      <h2>New Ingredient:</h2>
+      <%= form_with model: @recipefoods, url: ingredient_create_path, method: :post do |f| %>
+        <%= f.label 'Ingredient' %>
+        <%= f.select :food_id, options_for_select(@foods.collect { |food| [ food.name, food.id ] }) %>
+        <%= f.label "Quantity:" %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Add Ingredient" %>
+      <% end %>
+    </div>
+  </body>
