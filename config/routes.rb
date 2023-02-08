@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: 'recipes#index'
   get '/recipes', to: 'recipes#index', as: 'recipes'
   get '/public_recipes', to: 'recipes#public', as: 'public_recipes'
   get '/recipes/new', to: 'recipes#new', as: 'recipe_new'
