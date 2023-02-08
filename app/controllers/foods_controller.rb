@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
     @foods = Food.all
   end
 
-  def create  
+  def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
     if @food.save
