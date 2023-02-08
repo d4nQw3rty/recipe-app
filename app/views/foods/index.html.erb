@@ -1,15 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Foods</h1>
-
-<div id="foods">
-<%= link_to "New food", new_food_path %>
+<div class="food_menu_box"
+  <div>
+  <button type='button' class="button_style">
+    <%= link_to "Add food", new_food_path %>
+  </button>
+  <button type='button' class="button_style">
+    <%= link_to "Back to users", users_path %>      
+  </button>
+  </div> 
 </div>
-<div>
-<%= link_to "Back to users", users_path %> 
-</div>
-  <% @foods.each do |food| %>
-    <%= render food %>    
+<table class="table_style">
+<thead>
+  <tr class="tr_style">
+    <th>Food</th>
+    <th>Measurement unit</th>
+    <th>Price</th>
+    <th>Quantity</th>    
+    <th colspan="3">Action</th>
+  </tr>
+</thead>
+<tbody>  
+  <% @foods.each do |food| %>    
+    <%= render food %> 
   <% end %>
-</div>
-<div>
+</tbody>
+
+<table>
