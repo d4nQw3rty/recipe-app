@@ -1,5 +1,4 @@
-   <body>
-   <%= render 'shared/nav_menu' %>
+   <body>   
     <div class='container'>
       <h2>New Recipe:</h2>
       <%= form_with model: @recipe, url: recipe_create_path, method: :post do |f| %>
