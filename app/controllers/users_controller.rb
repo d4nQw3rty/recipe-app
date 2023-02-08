@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     @user = User.find(params[:id])
+    @current_user = current_user
     @recipes = @user.recipes
   end
 

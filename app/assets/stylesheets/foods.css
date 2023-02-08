@@ -16,7 +16,7 @@ h1 {
 
 .food_menu_box a {
   text-decoration: none;
-  color: #000;
+  color: #000; 
 }
 
 .food_form {
@@ -41,9 +41,9 @@ h1 {
   width: 75%;
 }
 
-.food_form input {
+.food_form input { 
   border: solid;
-  padding: 5px 5px;
+  padding: 5px 5px; 
   background: #fff;
   box-shadow: 4px 4px 1px;
   width: 100%;
