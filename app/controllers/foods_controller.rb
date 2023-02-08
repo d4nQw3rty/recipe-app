@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
-  end 
+  end
 
   def destroy
     @food = Food.find(params[:id])
