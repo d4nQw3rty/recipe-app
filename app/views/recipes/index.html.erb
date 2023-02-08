@@ -1,0 +1,16 @@
+<section class='container'>
+  <% @recipes.each do |recipe| %>
+    <div class='card'>
+      <div class='subdiv'>
+        <a href="<%= recipe_path(recipe.id)%>">
+          <h2><%= recipe.name %></h2>
+        </a>
+        <%= button_to 'Delete', recipe_delete_path(recipe.id), method: :delete %>
+      </div>
+      <div class='subdiv'>
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'Add New Recipe', recipe_new_path %>
+</section>
