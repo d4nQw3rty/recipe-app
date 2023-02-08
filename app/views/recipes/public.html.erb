@@ -1,3 +1,4 @@
+<%= render 'shared/nav_menu' %>
 <section class='container'>
   <% @recipes.each do |recipe| %>
     <a href="<%= recipe_path(recipe.id)%>" class='card'>
