@@ -1,4 +1,8 @@
 <h1> Shopping list</h1>
+<div class='shopping_counters'>
+<h3> Amount of food items to buy: <%= @recipefoods.length %> </h3>
+<h3> Total value: $ <%= @recipefoods.sum { |recipefood| (recipefood.quantity - recipefood.food.quantity) * recipefood.food.price } %> </h3>
+</div>
   <table>
     <tr>
       <th>Food</th>
@@ -9,7 +13,7 @@
       <tr>
         <td><%= recipefood.food.name %></td>
         <td><%= recipefood.quantity - recipefood.food.quantity%> <%= recipefood.food.measurement_unit %></td>
-        <td>$ <%= (recipefood.quantity - recipefood.food.quantity) * recipefood.food.price %></td>    
+        <td>$ <%= (recipefood.quantity - recipefood.food.quantity) * recipefood.food.price %></td> 
       </tr>
     <% end %>
   </table>

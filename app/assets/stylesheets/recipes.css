@@ -131,3 +131,10 @@ tr:nth-child(even) {
   flex-direction: column;
   align-items: center;
 }
+
+.shopping_counters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
