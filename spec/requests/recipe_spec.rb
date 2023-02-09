@@ -3,9 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Recipes', type: :request do
   describe 'GET recipes#index' do
     before do
-      user = User.first
-      user.confirm
-      sign_in user
+      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+      sign_in @user
+      @recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user.id)
       get '/recipes'
     end
 
@@ -24,9 +27,13 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'GET recipes#public' do
     before do
-      user = User.first
-      user.confirm
-      sign_in user
+      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+      sign_in @user
+      @recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user.id)
+      @privaterecipe = Recipe.create(name: 'privatefoodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: false, user_id: @user.id)
       get '/public_recipes'
     end
 
@@ -46,10 +53,12 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'GET recipes#show' do
     before do
-      user = User.first
-      user.confirm
-      sign_in user
-      @recipe = Recipe.where(user_id: user.id).last
+      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+      sign_in @user
+      @recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user.id)
       get "/recipes/#{@recipe.id}"
     end
     it 'is a success' do
@@ -67,9 +76,11 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'GET recipes#new' do
     before do
-      user = User.first
-      user.confirm
-      sign_in user
+      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+      sign_in @user
       get '/recipes/new'
     end
 
@@ -88,9 +99,11 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'POST recipes#create' do
     before do
-      user = User.first
-      user.confirm
-      sign_in user
+      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+      sign_in @user
       get '/recipes/new'
     end
 
@@ -106,8 +119,10 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'DELETE recipes#destroy' do
     before do
-      @user = User.first
+      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
       @user.confirm
+      @user.save
       sign_in @user
       get '/recipes/new'
     end
