@@ -1,5 +1,5 @@
 class RecipeFoodsController < ApplicationController
-  load_and_authorize_resource except: :create
+  load_and_authorize_resource except: :create, except: :update
   def new
     @recipefood = RecipeFood.new
     @foods = Food.where(user_id: current_user.id)
@@ -23,13 +23,18 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipefood = RecipeFood.find(params[:id])
+  end
+  
   def update
     @recipefood = RecipeFood.find(params[:id])
-    @recipefood.update
-  end
-
-  def put
-    
+      if @recipefood.update(params.permit(:quantity))
+        redirect_to recipe_path(params[:recipe_id]), notice: 'Food was successfully updated.'
+      else
+        redirect_to recipe_path(params[:recipe_id]), notice: 'Food was not updated.'
+      end
   end
 
   def destroy
