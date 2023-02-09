@@ -13,4 +13,10 @@ class RecipeFoodsController < ApplicationController
       redirect_to recipe_path(params[:recipe_id]), notice: 'Food was not created.'
     end
   end
+
+  def destroy
+    @recipefood = Recipe.find(params[:id])
+    @recipefood.destroy
+    redirect_to recipe_path(params[:recipe_id]), status: :see_other
+  end
 end

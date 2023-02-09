@@ -34,7 +34,11 @@
         <td><%= recipefood.food.name %></td>
         <td><%= recipefood.quantity %> <%= recipefood.food.measurement_unit %></td>
         <td>$ <%= recipefood.quantity * recipefood.food.price %></td>
-        <td></td>
+        <td>
+          <% if can? :manage, @recipe%>
+            <%= button_to 'Delete', ingredient_delete_path(@recipe.id, recipefood.id), method: :delete %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
