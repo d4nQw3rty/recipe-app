@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Foods', type: :request do
   describe 'GET foods#index' do
     before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user.skip_confirmation!
       @user.confirm
       @user.save
@@ -26,7 +27,8 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'GET foods#new' do
     before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user.skip_confirmation!
       @user.confirm
       @user.save
@@ -49,7 +51,8 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'POST foods#create' do
     before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user.skip_confirmation!
       @user.confirm
       @user.save
@@ -66,7 +69,8 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'DELETE foods#destroy' do
     before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user.skip_confirmation!
       @user.confirm
       @user.save

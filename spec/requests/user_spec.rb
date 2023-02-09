@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   describe 'GET users#index' do
     before(:each) do
-      @user3 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user3 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user3.skip_confirmation!
       @user3.confirm
       @user3.save
@@ -24,7 +25,8 @@ RSpec.describe 'Users', type: :request do
   end
   describe 'GET users#show' do
     before(:each) do
-      @user3 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user3 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user3.skip_confirmation!
       @user3.confirm
       @user3.save
