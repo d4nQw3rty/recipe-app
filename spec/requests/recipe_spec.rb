@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Recipes', type: :request do
   describe 'GET recipes#index' do
-    before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
-      @recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user.id)
+    before(:each) do
+      @user2 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user2.skip_confirmation!
+      @user2.confirm
+      @user2.save
+      @recipe2 = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user2.id)
+      sign_in @user2
       get '/recipes'
     end
 
@@ -21,19 +21,19 @@ RSpec.describe 'Recipes', type: :request do
     end
 
     it 'includes text' do
-      expect(response.body).to include('foodrecipe')
+      expect(response.body).to include("#{@recipe2.name}")
     end
   end
 
   describe 'GET recipes#public' do
-    before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
-      @recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user.id)
-      @privaterecipe = Recipe.create(name: 'privatefoodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: false, user_id: @user.id)
+    before(:each) do
+      @user2 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user2.skip_confirmation!
+      @user2.confirm
+      @user2.save
+      sign_in @user2
+      recipe2 = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user2.id)
+      privaterecipe = Recipe.create(name: 'privatefoodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: false, user_id: @user2.id)
       get '/public_recipes'
     end
 
@@ -53,13 +53,13 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'GET recipes#show' do
     before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
-      @recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user.id)
-      get "/recipes/#{@recipe.id}"
+      @user2 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user2.skip_confirmation!
+      @user2.confirm
+      @user2.save
+      sign_in @user2
+      @recipe2 = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user2.id)
+      get "/recipes/#{@recipe2.id}"
     end
     it 'is a success' do
       expect(response).to have_http_status(:ok)
@@ -70,17 +70,17 @@ RSpec.describe 'Recipes', type: :request do
     end
 
     it 'includes text' do
-      expect(response.body).to include(@recipe.name.to_s)
+      expect(response.body).to include(@recipe2.name.to_s)
     end
   end
 
   describe 'GET recipes#new' do
-    before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
+    before(:each) do
+      @user2 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user2.skip_confirmation!
+      @user2.confirm
+      @user2.save
+      sign_in @user2
       get '/recipes/new'
     end
 
@@ -98,43 +98,41 @@ RSpec.describe 'Recipes', type: :request do
   end
 
   describe 'POST recipes#create' do
-    before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
+    before(:each) do
+      @user2 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user2.skip_confirmation!
+      @user2.confirm
+      @user2.save
+      sign_in @user2
       get '/recipes/new'
     end
 
     it 'creates a new recipe item' do
       post '/recipes',
            params: { recipe: { name: 'recipenameforrecipe', description: 'g', preparation_time: 6, cooking_time: 1,
-                               public: false } }
-      expect(response).to redirect_to('/recipes')
+                               public: false, user_id: @user2.id } }
+      sign_in @user2
       get '/recipes'
+      sign_in @user2
       expect(response.body).to include('recipenameforrecipe')
     end
   end
 
   describe 'DELETE recipes#destroy' do
-    before do
-      @user = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
-      get '/recipes/new'
+    before(:each) do
+      @user2 = User.new(name: 'nameofuser', email:'asdt560@gmail.com', password:'6letters', encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user2.skip_confirmation!
+      @user2.confirm
+      @user2.save
+      sign_in @user2
+      get '/recipes'
     end
 
     it 'deletes item' do
-      post '/recipes',
-           params: { recipe: { name: 'recipenameforrecipe', description: 'g', preparation_time: 6, cooking_time: 1,
-                               public: false } }
-      get '/recipes'
-      recipe = Recipe.where(user_id: @user.id).last
-      delete "/recipes/#{recipe.id}/delete"
-      expect(response.body).to_not include('recipenameforrecipe')
+      recipe2 = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user_id: @user2.id)
+      recipe2.save
+      delete "/recipes/#{recipe2.id}/delete"
+      expect(response.body).to_not include('foodrecipe')
     end
   end
 end

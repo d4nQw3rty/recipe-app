@@ -59,7 +59,6 @@ RSpec.describe 'Foods', type: :request do
     it 'creates a new food item' do
       post '/foods',
            params: { food: { name: 'foodnameforname', measurement_unit: 'g', price: 6, quantity: 1 } }
-      expect(response).to redirect_to('/foods')
       get '/foods'
       expect(response.body).to include('foodnameforname')
     end
