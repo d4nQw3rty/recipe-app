@@ -28,7 +28,6 @@ RSpec.describe 'Recipefoods', type: :request do
       @user = User.first
       @user.confirm
       @recipe = Recipe.where(user_id: @user.id).last
-      @recipefood
       sign_in @user
       get "/recipes/#{@recipe.id}/shopping_list"
     end
