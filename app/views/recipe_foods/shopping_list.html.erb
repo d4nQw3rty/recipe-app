@@ -1,0 +1,15 @@
+<h1> Shopping list</h1>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>     
+    </tr>
+    <% @recipefoods.each do |recipefood| %>
+      <tr>
+        <td><%= recipefood.food.name %></td>
+        <td><%= recipefood.quantity - recipefood.food.quantity%> <%= recipefood.food.measurement_unit %></td>
+        <td>$ <%= (recipefood.quantity - recipefood.food.quantity) * recipefood.food.price %></td>    
+      </tr>
+    <% end %>
+  </table>
