@@ -14,8 +14,17 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def update
+    @recipefood = RecipeFood.find(params[:id])
+    @recipefood.update
+  end
+
+  def put
+    
+  end
+
   def destroy
-    @recipefood = Recipe.find(params[:id])
+    @recipefood = RecipeFood.find(params[:id])
     @recipefood.destroy
     redirect_to recipe_path(params[:recipe_id]), status: :see_other
   end

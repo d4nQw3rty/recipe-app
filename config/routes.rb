@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'
   get '/recipes/:recipe_id/new_ingredient', to: 'recipe_foods#new', as: 'ingredient_new'
   post 'recipes/:recipe_id', to: 'recipe_foods#create', as: 'ingredient_create'
+  get '/recipes/:recipe_id/update/:id', to: 'recipe_foods#update', as: 'ingredient_update'
   delete 'recipes/:recipe_id/delete/:id', to: 'recipe_foods#destroy', as: 'ingredient_delete'
   post '/recipes/:id/toggle', to: 'recipes#toggle', as: 'recipe_toggle'
   resources :users, only: [:index, :show ]

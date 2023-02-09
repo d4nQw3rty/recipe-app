@@ -36,7 +36,7 @@
         <td>$ <%= recipefood.quantity * recipefood.food.price %></td>
         <td>
           <% if can? :manage, @recipe%>
-            <%= button_to 'Delete', ingredient_delete_path(@recipe.id, recipefood.id), method: :delete %>
+            <%= button_to 'Delete', ingredient_delete_path(recipe_id: @recipe.id, id: recipefood.id), method: :delete %>
           <% end %>
         </td>
       </tr>
