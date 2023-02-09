@@ -19,6 +19,7 @@ a {
   border: 2px solid black;
   background: #fff;
   box-shadow: 4px 4px 1px;
+  align-items: center;
 }
 
 .card:hover {
@@ -129,4 +130,11 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.shopping_counters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }

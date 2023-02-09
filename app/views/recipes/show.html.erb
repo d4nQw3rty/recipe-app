@@ -5,7 +5,9 @@
       <p>Preparation Time: <%= @recipe.preparation_time %> hs.</p>
       <p>Cooking Time: <%= @recipe.cooking_time %> hs.</p>
       <p> <%= @recipe.description %>
+      <%= link_to 'Shopping List', shopping_list_path(@recipe.id) %>
     </div>
+    <% if can? :manage, @recipe%>
     <div class='column-right'>
       <div class='togglediv'>
         <p class='togglelabel'>Public</p>
@@ -17,6 +19,7 @@
         <% end %>
       </div>
       <%= link_to 'Add Ingredient', ingredient_new_path(@recipe.id) %>
+      <% end %>
     </div>
   </div>
   <span></span>
@@ -32,7 +35,12 @@
         <td><%= recipefood.food.name %></td>
         <td><%= recipefood.quantity %> <%= recipefood.food.measurement_unit %></td>
         <td>$ <%= recipefood.quantity * recipefood.food.price %></td>
-        <td></td>
+        <td>
+          <% if can? :manage, @recipe%>
+            <%= button_to 'Delete', ingredient_delete_path(recipe_id: @recipe.id, id: recipefood.id), method: :delete %>
+            <%= link_to 'Modify', ingredient_edit_path(recipe_id: @recipe.id, id: recipefood.id) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
