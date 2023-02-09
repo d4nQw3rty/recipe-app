@@ -9,8 +9,7 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipefoods.each do |recipefood|
       @food = Food.find(recipefood.food_id)
-      @food.quantity = @food.quantity - recipefood.quantity
-      @food.save
+      @food.quantity = @food.quantity - recipefood.quantity      
     end
   end
 
