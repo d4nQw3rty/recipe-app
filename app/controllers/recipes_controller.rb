@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource except: :create
   def index
     @recipes = Recipe.where(user_id: current_user.id)
   end
@@ -10,6 +11,7 @@ class RecipesController < ApplicationController
 
   def public
     @recipes = Recipe.includes(:recipe_foods, :user).where(public: true)
+    authorize! :read, @recipes
   end
 
   def toggle
