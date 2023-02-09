@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/recipes/:recipe_id/new_ingredient', to: 'recipe_foods#new', as: 'ingredient_new'
   post 'recipes/:recipe_id', to: 'recipe_foods#create', as: 'ingredient_create'
   post '/recipes/:id/toggle', to: 'recipes#toggle', as: 'recipe_toggle'
+  get '/recipes/:id/shopping_list', to: 'recipe_foods#shopping_list', as: 'shopping_list'
   resources :users, only: [:index, :show ]
   resources :foods, only: [:index, :create, :new,  :destroy]
 end
