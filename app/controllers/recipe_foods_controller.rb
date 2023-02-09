@@ -6,8 +6,8 @@ class RecipeFoodsController < ApplicationController
   end
 
   def shopping_list
-    @recipefoods = RecipeFood.includes(:food).where(recipe_id: params[:id])
-    @recipe = Recipe.find(params[:id])
+    @recipefoods = RecipeFood.includes(:food).where(recipe_id: params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
     @recipefoods.each do |recipefood|
       @food = Food.find(recipefood.food_id)
       @food.quantity = @food.quantity - recipefood.quantity
