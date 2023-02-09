@@ -17,6 +17,7 @@
           </label>
         <% end %>
       </div>
+      <%= link_to 'Shopping List', shopping_list_path(@recipe.id) %>
       <%= link_to 'Add Ingredient', ingredient_new_path(@recipe.id) %>
       <% end %>
     </div>
