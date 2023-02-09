@@ -19,6 +19,7 @@ a {
   border: 2px solid black;
   background: #fff;
   box-shadow: 4px 4px 1px;
+  align-items: center;
 }
 
 .card:hover {
