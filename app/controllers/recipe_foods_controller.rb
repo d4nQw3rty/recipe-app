@@ -8,9 +8,15 @@ class RecipeFoodsController < ApplicationController
   def shopping_list
     @recipefoods = RecipeFood.includes(:food).where(recipe_id: params[:recipe_id])
     @recipe = Recipe.find(params[:recipe_id])
+    @recipefoods = RecipeFood.includes(:food).where(recipe_id: params[:id])
+    @recipe = Recipe.find(params[:id])
+    @total = 0
+    @items_to_buy = 0
     @recipefoods.each do |recipefood|
-      @food = Food.find(recipefood.food_id)
-      @food.quantity = @food.quantity - recipefood.quantity
+      if (recipefood.quantity - recipefood.food.quantity).positive?
+        @total += (recipefood.quantity - recipefood.food.quantity) * recipefood.food.price
+        @items_to_buy += 1
+      end
     end
   end
 
