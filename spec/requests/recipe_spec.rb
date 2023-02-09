@@ -61,7 +61,7 @@ RSpec.describe 'Recipes', type: :request do
     end
 
     it 'includes text' do
-      expect(response.body).to include("#{@recipe.name}")
+      expect(response.body).to include(@recipe.name.to_s)
     end
   end
 
@@ -95,7 +95,9 @@ RSpec.describe 'Recipes', type: :request do
     end
 
     it 'creates a new recipe item' do
-      post "/recipes", :params => { :recipe => {:name => "recipenameforrecipe", :description => 'g', :preparation_time => 6, :cooking_time => 1, :public => false } }
+      post '/recipes',
+           params: { recipe: { name: 'recipenameforrecipe', description: 'g', preparation_time: 6, cooking_time: 1,
+                               public: false } }
       expect(response).to redirect_to('/recipes')
       get '/recipes'
       expect(response.body).to include('recipenameforrecipe')
@@ -111,7 +113,9 @@ RSpec.describe 'Recipes', type: :request do
     end
 
     it 'deletes item' do
-      post "/recipes", :params => { :recipe => {:name => "recipenameforrecipe", :description => 'g', :preparation_time => 6, :cooking_time => 1, :public => false } }
+      post '/recipes',
+           params: { recipe: { name: 'recipenameforrecipe', description: 'g', preparation_time: 6, cooking_time: 1,
+                               public: false } }
       get '/recipes'
       recipe = Recipe.where(user_id: @user.id).last
       delete "/recipes/#{recipe.id}/delete"

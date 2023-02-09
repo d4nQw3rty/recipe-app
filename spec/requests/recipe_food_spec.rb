@@ -19,7 +19,7 @@ RSpec.describe 'Recipefoods', type: :request do
     end
 
     it 'includes text' do
-      expect(response.body).to include("New Ingredient")
+      expect(response.body).to include('New Ingredient')
     end
   end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Recipefoods', type: :request do
     end
 
     it 'includes text' do
-      expect(response.body).to include("Shopping list")
+      expect(response.body).to include('Shopping list')
     end
   end
 
@@ -57,10 +57,11 @@ RSpec.describe 'Recipefoods', type: :request do
     end
 
     it 'creates a new recipe item' do
-      post "/recipes/#{@recipe.id}", :params => { :recipe => {:quantity => 1, :recipe_id => @recipe.id, :food_id => @food.id } }
+      post "/recipes/#{@recipe.id}",
+           params: { recipe: { quantity: 1, recipe_id: @recipe.id, food_id: @food.id } }
       expect(response).to redirect_to("/recipes/#{@recipe.id}")
       get "/recipes/#{@recipe.id}"
-      expect(response.body).to include("#{@food.name}")
+      expect(response.body).to include(@food.name.to_s)
     end
   end
 
@@ -84,7 +85,7 @@ RSpec.describe 'Recipefoods', type: :request do
     end
 
     it 'includes text' do
-      expect(response.body).to include("Update Ingredient")
+      expect(response.body).to include('Update Ingredient')
     end
   end
 
@@ -99,10 +100,10 @@ RSpec.describe 'Recipefoods', type: :request do
       get "/recipes/#{@recipe.id}/update/#{@recipefood.id}"
     end
     it 'updates a new recipefood item' do
-      put "/recipes/#{@recipe.id}/update/#{@recipefood.id}", :params => { :recipe => {:quantity => 535311 } }
+      put "/recipes/#{@recipe.id}/update/#{@recipefood.id}", params: { recipe: { quantity: 535_311 } }
       expect(response).to redirect_to("/recipes/#{@recipe.id}")
       get "/recipes/#{@recipe.id}"
-      expect(response.body).to include("#{@recipefood.quantity}")
+      expect(response.body).to include(@recipefood.quantity.to_s)
     end
   end
 
@@ -118,12 +119,13 @@ RSpec.describe 'Recipefoods', type: :request do
     end
 
     it 'deletes item' do
-      post "/recipes/#{@recipe.id}", :params => { :recipe => {:quantity => 1, :recipe_id => @recipe.id, :food_id => @food.id } }
+      post "/recipes/#{@recipe.id}",
+           params: { recipe: { quantity: 1, recipe_id: @recipe.id, food_id: @food.id } }
       expect(response).to redirect_to("/recipes/#{@recipe.id}")
       get "/recipes/#{@recipe.id}"
-      expect(response.body).to include("#{@recipefood.food.name}")
+      expect(response.body).to include(@recipefood.food.name.to_s)
       delete "/recipes/#{@recipe.id}/delete/#{@recipefood.id}"
-      expect(response.body).to_not include("#{@recipefood.food.name}")
+      expect(response.body).to_not include(@recipefood.food.name.to_s)
     end
   end
 end

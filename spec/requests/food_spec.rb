@@ -51,7 +51,8 @@ RSpec.describe 'Foods', type: :request do
       get '/foods/new'
     end
     it 'creates a new food item' do
-      post "/foods", :params => { :food => {:name => "foodnameforname", :measurement_unit => 'g', :price => 6, :quantity => 1 } }
+      post '/foods',
+           params: { food: { name: 'foodnameforname', measurement_unit: 'g', price: 6, quantity: 1 } }
       expect(response).to redirect_to('/foods')
       get '/foods'
       expect(response.body).to include('foodnameforname')
@@ -67,7 +68,8 @@ RSpec.describe 'Foods', type: :request do
     end
 
     it 'deletes item' do
-      post "/foods", :params => { :food => {:name => "foodnameforname", :measurement_unit => 'g', :price => 6, :quantity => 1 } }
+      post '/foods',
+           params: { food: { name: 'foodnameforname', measurement_unit: 'g', price: 6, quantity: 1 } }
       get '/foods'
       food = Food.where(user_id: @user.id).last
       delete "/foods/#{food.id}"

@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   before :all do
     user = User.first
-    food = Food.create(name: 'foodstuff', measurement_unit: 'gr', price: 20, quantity: 1, user: user)
-    recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem', public: true, user: user)
-    recipe_food = RecipeFood.create(quantity: 5, food: food, recipe: recipe)
-    
+    food = Food.create(name: 'foodstuff', measurement_unit: 'gr', price: 20, quantity: 1, user:)
+    recipe = Recipe.create(name: 'foodrecipe', preparation_time: '1.5', cooking_time: '1', description: 'lorem',
+                           public: true, user:)
+    recipe_food = RecipeFood.create(quantity: 5, food:, recipe:)
+
     user.save
     food.save
     recipe.save
