@@ -22,4 +22,24 @@ class RecipeFoodsController < ApplicationController
       redirect_to recipe_path(params[:recipe_id]), notice: 'Food was not created.'
     end
   end
+
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipefood = RecipeFood.find(params[:id])
+  end
+
+  def update
+    @recipefood = RecipeFood.find(params[:id])
+    if @recipefood.update(params.permit(:quantity))
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Food was successfully updated.'
+    else
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Food was not updated.'
+    end
+  end
+
+  def destroy
+    @recipefood = RecipeFood.find(params[:id])
+    @recipefood.destroy
+    redirect_to recipe_path(params[:recipe_id]), status: :see_other
+  end
 end
