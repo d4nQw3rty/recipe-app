@@ -19,7 +19,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def create
-    @recipefood = RecipeFood.new(params.permit(:quantity, :food_id, :recipe_id))
+    @recipefood = RecipeFood.new(params.require(:recipe_food).permit(:quantity, :food_id, :recipe_id))
     if @recipefood.save
       redirect_to recipe_path(params[:recipe_id]), notice: 'Food was successfully created.'
     else

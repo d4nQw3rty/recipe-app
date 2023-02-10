@@ -1,11 +1,6 @@
   <body>
     <div class='container'>
       <h2>Update Ingredient:</h2>
-      <%= form_with model: @recipefoods, url: ingredient_update_path(@recipe.id, @recipefood.id), method: :put do |f| %>
-        <p><%= @recipefood.food.name %></p>
-        <%= f.label "Quantity:" %>
-        <%= f.number_field :quantity %>
-        <%= f.submit "Update Ingredient" %>
-      <% end %>
+      <%= render "ingredient_update", recipefood: @recipefood %>
     </div>
   </body>

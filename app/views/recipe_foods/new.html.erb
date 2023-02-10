@@ -1,12 +1,6 @@
   <body>
     <div class='container'>
       <h2>New Ingredient:</h2>
-      <%= form_with model: @recipefoods, url: ingredient_create_path, method: :post do |f| %>
-        <%= f.label 'Ingredient' %>
-        <%= f.select :food_id, options_for_select(@foods.collect { |food| [ food.name, food.id ] }) %>
-        <%= f.label "Quantity:" %>
-        <%= f.number_field :quantity, min: 1 %>
-        <%= f.submit "Add Ingredient" %>
-      <% end %>
+      <%= render "ingredient_new", recipefood: @recipefood %>
     </div>
   </body>
