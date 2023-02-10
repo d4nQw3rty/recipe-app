@@ -19,7 +19,6 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
 
 # 📖 recipe-app <a name="about-project"></a>
 
@@ -54,7 +53,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 
 - **Foods view:** allows the user to see the food items at their disposal, and add new ones.
 - **Recipes view:** allows user to see their own recipes, and add new ones.
@@ -73,8 +71,6 @@ Not yet available.
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 

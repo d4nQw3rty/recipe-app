@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Recipes', type: :system do
   describe 'public' do
     before :all do
-      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+      @user = User.new(name: 'nameofuser', email: 'asdt5604@gmail.com', password: '6letters',
                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user.skip_confirmation!
       @user.confirm
@@ -23,10 +23,10 @@ RSpec.describe 'Recipes', type: :system do
       expect(page).to have_content("By: #{@user.name}") # 5
     end
     after :all do
-      @user.destroy
-      @food.destroy
-      @recipe.destroy
       @recipefood.destroy
+      @recipe.destroy
+      @food.destroy
+      @user.destroy
     end
   end
 end
