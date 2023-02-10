@@ -74,7 +74,7 @@ RSpec.describe 'Recipefoods', type: :request do
 
     it 'creates a new recipe item' do
       post "/recipes/#{@recipe1.id}",
-           params: { recipe: { quantity: 1, recipe_id: @recipe1.id, food_id: @food1.id } }
+           params: { recipe_food: { quantity: 1, recipe_id: @recipe1.id, food_id: @food1.id } }
       expect(response).to redirect_to("/recipes/#{@recipe1.id}")
       get "/recipes/#{@recipe1.id}"
       expect(response.body).to include(@food1.name.to_s)
@@ -124,7 +124,7 @@ RSpec.describe 'Recipefoods', type: :request do
       get "/recipes/#{@recipe1.id}/update/#{@recipe1food.id}"
     end
     it 'updates a new recipefood item' do
-      put "/recipes/#{@recipe1.id}/update/#{@recipe1food.id}", params: { recipe: { quantity: 535_311 } }
+      put "/recipes/#{@recipe1.id}/update/#{@recipe1food.id}", params: { recipe_food: { quantity: 535_311 } }
       expect(response).to redirect_to("/recipes/#{@recipe1.id}")
       get "/recipes/#{@recipe1.id}"
       expect(response.body).to include(@recipe1food.quantity.to_s)
@@ -148,7 +148,7 @@ RSpec.describe 'Recipefoods', type: :request do
 
     it 'deletes item' do
       post "/recipes/#{@recipe1.id}",
-           params: { recipe: { quantity: 1, recipe_id: @recipe1.id, food_id: @food1.id } }
+           params: { recipe_food: { quantity: 1, recipe_id: @recipe1.id, food_id: @food1.id } }
       expect(response).to redirect_to("/recipes/#{@recipe1.id}")
       get "/recipes/#{@recipe1.id}"
       expect(response.body).to include(@recipe1food.food.name.to_s)
