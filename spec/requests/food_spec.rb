@@ -4,7 +4,7 @@ RSpec.describe 'Foods', type: :request do
   describe 'GET foods#index' do
     before do
       @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user6.skip_confirmation!
       @user6.confirm
       @user6.save
@@ -28,7 +28,7 @@ RSpec.describe 'Foods', type: :request do
   describe 'GET foods#new' do
     before do
       @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user6.skip_confirmation!
       @user6.confirm
       @user6.save
@@ -52,7 +52,7 @@ RSpec.describe 'Foods', type: :request do
   describe 'POST foods#create' do
     before do
       @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user6.skip_confirmation!
       @user6.confirm
       @user6.save
@@ -70,7 +70,7 @@ RSpec.describe 'Foods', type: :request do
   describe 'DELETE foods#destroy' do
     before do
       @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user6.skip_confirmation!
       @user6.confirm
       @user6.save
