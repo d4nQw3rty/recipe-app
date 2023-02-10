@@ -34,7 +34,7 @@ class RecipeFoodsController < ApplicationController
 
   def update
     @recipefood = RecipeFood.find(params[:id])
-    if @recipefood.update(params.permit(:quantity))
+    if @recipefood.update(params.require(:recipe_food).permit(:quantity))
       redirect_to recipe_path(params[:recipe_id]), notice: 'Food was successfully updated.'
     else
       redirect_to recipe_path(params[:recipe_id]), notice: 'Food was not updated.'
