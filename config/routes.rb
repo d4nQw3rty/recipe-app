@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   put 'recipes/:recipe_id/update/:id', to: 'recipe_foods#update', as: 'ingredient_update'
   delete 'recipes/:recipe_id/delete/:id', to: 'recipe_foods#destroy', as: 'ingredient_delete'
   post '/recipes/:id/toggle', to: 'recipes#toggle', as: 'recipe_toggle'
-  get '/recipes/:id/shopping_list', to: 'recipe_foods#shopping_list', as: 'shopping_list'
+  get '/recipes/:recipe_id/shopping_list', to: 'recipe_foods#shopping_list', as: 'shopping_list'
   resources :users, only: [:index, :show ]
   resources :foods, only: [:index, :create, :new,  :destroy]
 end

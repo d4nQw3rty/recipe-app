@@ -2,10 +2,10 @@
   <h1><%= @recipe.name %></h1>
   <div class='subcontainer'>
     <div class='column-left'>
-      <p>Preparation Time: <%= @recipe.preparation_time %> hs.</p>
-      <p>Cooking Time: <%= @recipe.cooking_time %> hs.</p>
-      <p> <%= @recipe.description %>
-      <%= link_to 'Shopping List', shopping_list_path(@recipe.id) %>
+      <p class='biginfo'>Preparation Time: <%= @recipe.preparation_time %> hs.</p>
+      <p class='biginfo'>Cooking Time: <%= @recipe.cooking_time %> hs.</p>
+      <p> <%= @recipe.description %> </p>
+      <%= link_to 'Generate Shopping List', shopping_list_path(@recipe.id), class: :linkbutton %>
     </div>
     <% if can? :manage, @recipe%>
     <div class='column-right'>
@@ -18,7 +18,7 @@
           </label>
         <% end %>
       </div>
-      <%= link_to 'Add Ingredient', ingredient_new_path(@recipe.id) %>
+      <%= link_to 'Add Ingredient', ingredient_new_path(@recipe.id), class: :linkbutton %>
       <% end %>
     </div>
   </div>

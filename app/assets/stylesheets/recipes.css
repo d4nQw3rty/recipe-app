@@ -3,6 +3,14 @@ a {
   cursor: pointer;
 }
 
+h2 {
+  margin-top: 16px;
+}
+
+h1 {
+  margin: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -19,7 +27,6 @@ a {
   border: 2px solid black;
   background: #fff;
   box-shadow: 4px 4px 1px;
-  align-items: center;
 }
 
 .card:hover {
@@ -31,6 +38,7 @@ a {
 .subdiv {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
 }
 
 .subcontainer {
@@ -43,6 +51,13 @@ a {
   flex-direction: column;
   width: 70%;
   padding: 1rem;
+}
+
+.column-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1rem;
 }
 
 .togglediv {
@@ -137,4 +152,28 @@ tr:nth-child(even) {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.button_to {
+  margin-bottom: 5px;
+}
+
+.biginfo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.linkbutton {
+  text-decoration: none;
+  background-color: #eee;
+  color: #333;
+  padding: 2px 6px 2px 6px;
+  border: 2px solid black;
+}
+
+.linkbutton:hover {
+  background-color: #333;
+  color: #eee;
+  border-color: #eeeeee3f;
 }
