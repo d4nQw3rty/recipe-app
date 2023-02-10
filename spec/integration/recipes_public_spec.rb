@@ -20,8 +20,8 @@ RSpec.describe 'Recipes', type: :system do
       expect(page).to have_content(@recipe.name) # 2
       expect(page).to have_content('Total price: $100') # 3
       expect(page).to have_content('Total food items: 1') # 4
-      expect(page).to have_content('By: ' + @user.name) # 5
-    end
+      expect(page).to have_content("By: #{@user.name}") # 5
+      end
     after :all do
       @user.destroy
       @food.destroy

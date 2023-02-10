@@ -19,8 +19,8 @@ RSpec.describe 'Recipes', type: :system do
       visit recipe_path(@recipe.id)
       expect(page).to have_content(@user.name) # 1
       expect(page).to have_content(@recipe.name) # 2
-      expect(page).to have_content('Preparation Time: ' + @recipe.preparation_time) # 3
-      expect(page).to have_content('Cooking Time: ' + @recipe.cooking_time) # 4
+      expect(page).to have_content("Preparation Time: #{@recipe.preparation_time}") # 3
+      expect(page).to have_content("Cooking Time: #{@recipe.cooking_time}") # 4
       expect(page).to have_content(@recipefood.food.name) # 5
       expect(page).to have_content(@recipefood.quantity) # 6
       expect(page).to have_content(@recipefood.food.measurement_unit) # 7
