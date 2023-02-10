@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :foods, dependent: :destroy, foreign_key: 'user_id'
   has_many :recipes, dependent: :destroy, foreign_key: 'user_id'
+  validates :name, presence: true
 end
