@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe 'Recipes', type: :feature do
+RSpec.describe 'Recipes', type: :system do
   describe 'public' do
     before do
-      user = create(:user)
-      :only_path to true
-    end
-    it 'returns http success' do
-    visit recipes_path
-      expect(page).to have_http_status(:success)
+      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user.skip_confirmation!
+      @user.confirm
+      @user.save
+      sign_in @user
     end
 
     it 'displays the recipes' do
-      visit recipes_path
-      expect(page).to have_content('Public Recipe')
+      visit public_recipes_path
+      expect(page).to have_content('Recipes')
     end
   end
 end
