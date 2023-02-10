@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Foods', type: :request do
   describe 'GET foods#index' do
     before do
-      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
+      @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user6.skip_confirmation!
+      @user6.confirm
+      @user6.save
+      sign_in @user6
       get '/foods'
     end
 
@@ -27,12 +27,12 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'GET foods#new' do
     before do
-      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
+      @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user6.skip_confirmation!
+      @user6.confirm
+      @user6.save
+      sign_in @user6
       get '/foods/new'
     end
 
@@ -51,30 +51,30 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'POST foods#create' do
     before do
-      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
+      @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user6.skip_confirmation!
+      @user6.confirm
+      @user6.save
+      sign_in @user6
       get '/foods/new'
     end
     it 'creates a new food item' do
       post '/foods',
-           params: { food: { name: 'foodnameforname', measurement_unit: 'g', price: 6, quantity: 1 } }
+           params: { food: { name: 'foodnameforname12', measurement_unit: 'g', price: 6, quantity: 1 } }
       get '/foods'
-      expect(response.body).to include('foodnameforname')
+      expect(response.body).to include('foodnameforname12')
     end
   end
 
   describe 'DELETE foods#destroy' do
     before do
-      @user = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
-                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
-      @user.skip_confirmation!
-      @user.confirm
-      @user.save
-      sign_in @user
+      @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+                        encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
+      @user6.skip_confirmation!
+      @user6.confirm
+      @user6.save
+      sign_in @user6
       get '/foods/new'
     end
 
@@ -82,7 +82,7 @@ RSpec.describe 'Foods', type: :request do
       post '/foods',
            params: { food: { name: 'foodnameforname', measurement_unit: 'g', price: 6, quantity: 1 } }
       get '/foods'
-      food = Food.where(user_id: @user.id).last
+      food = Food.where(user_id: @user6.id).last
       delete "/foods/#{food.id}"
       expect(response.body).to_not include('foodnameforname')
     end
