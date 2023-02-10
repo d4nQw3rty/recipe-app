@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   before :each do
-    @user5 = User.new(name: 'nameofuser', email: 'asdt5605@gmail.com', password: '6letters',
+    @user5 = User.new(name: 'nameofuser', email: 'asdt56062@gmail.com', password: '6letters',
                       encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
     @user5.skip_confirmation!
     @user5.confirm

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Recipefoods', type: :request do
   describe 'GET recipe_foods#new' do
     before do
-      @user1 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+      @user1 = User.new(name: 'nameofuser', email: 'asdt560aaa@gmail.com', password: '6letters',
                         encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user1.skip_confirmation!
       @user1.confirm

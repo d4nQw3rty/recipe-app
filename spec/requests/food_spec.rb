@@ -69,7 +69,7 @@ RSpec.describe 'Foods', type: :request do
 
   describe 'DELETE foods#destroy' do
     before do
-      @user6 = User.new(name: 'nameofuser', email: 'asdt560@gmail.com', password: '6letters',
+      @user6 = User.new(name: 'nameofuser', email: 'asdt5605363@gmail.com', password: '6letters',
                         encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2')
       @user6.skip_confirmation!
       @user6.confirm
