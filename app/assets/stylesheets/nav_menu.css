@@ -1,0 +1,27 @@
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em 3em;
+  font-size: 1em;
+  list-style: none;
+}
+
+.box a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.box a:hover {
+  color: green;
+}
+
+.username {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

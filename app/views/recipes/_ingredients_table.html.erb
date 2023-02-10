@@ -1,0 +1,21 @@
+<table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipefoods.each do |recipefood| %>
+      <tr>
+        <td><%= recipefood.food.name %></td>
+        <td><%= recipefood.quantity %> <%= recipefood.food.measurement_unit %></td>
+        <td>$ <%= recipefood.quantity * recipefood.food.price %></td>
+        <td>
+          <% if can? :manage, @recipe%>
+            <%= button_to 'Delete', ingredient_delete_path(recipe_id: @recipe.id, id: recipefood.id), method: :delete %>
+            <%= link_to 'Modify', ingredient_edit_path(recipe_id: @recipe.id, id: recipefood.id) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>

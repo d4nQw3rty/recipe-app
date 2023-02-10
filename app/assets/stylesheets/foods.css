@@ -1,0 +1,107 @@
+h1 {
+  text-align: center;
+  color: #000;
+  font-size: 3em;
+}
+
+.food_menu_box {
+  display: flex;
+  justify-content: end;
+  gap: 2em;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em 3em;
+}
+
+.food_menu_box a {
+  text-decoration: none;
+  color: #000;
+}
+
+.food_form {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em 3em;
+}
+
+.food_form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
+}
+
+.food_form div {
+  width: 75%;
+}
+
+.food_form input {
+  border: solid;
+  padding: 5px 5px;
+  background: #fff;
+  box-shadow: 4px 4px 1px;
+  width: 100%;
+}
+
+.button_style {
+  border: solid;
+  padding: 5px 5px;
+  background: #fff;
+  box-shadow: 4px 4px 1px;
+}
+
+.button_style:hover {
+  background: #89c922;
+  color: #000;
+  box-shadow: 4px 4px 1px;
+}
+
+.food_item_box {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em 3em;
+}
+
+.table_style {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 5px;
+  background: #e6e6e6;
+}
+
+.table_style td {
+  text-align: center;
+}
+
+.tr_style {
+  border: solid;
+  padding: 5px 5px;
+  background: #e6e6e6;
+  box-shadow: 4px 4px 1px;
+}
+
+.tr_style th {
+  border: solid;
+  padding: 5px 5px;
+  background: #fff;
+  box-shadow: 4px 4px 1px;
+  margin: 0 2em;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #afadad;
+}
+
+table tbody tr:nth-child(even) {
+  background: #e6e6e6;
+}
