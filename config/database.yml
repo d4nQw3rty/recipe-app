@@ -87,4 +87,4 @@ test:
 #
 production:
   <<: *default
-url: <%= ENV['DATABASE_URL'] %>
+url: 'postgres://recipeapp_tro6_user:iyHGuUwOxEytsTJQKDzOrmGCgcvMlO12@dpg-cfjro2la49903fl7ibr0-a/recipeapp_tro6'
